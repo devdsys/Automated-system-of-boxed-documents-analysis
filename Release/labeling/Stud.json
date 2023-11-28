@@ -1,0 +1,110 @@
+{
+    "file_name": "Stud",
+    "img_size": [
+        537,
+        352,
+        3
+    ],
+    "interest_points": {
+        "University": {
+            "coordinates": [
+                [
+                    171,
+                    44
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Photo": {
+            "coordinates": [
+                [
+                    212,
+                    160
+                ]
+            ],
+            "field_type": "photo"
+        },
+        "Seria, number": {
+            "coordinates": [
+                [
+                    69,
+                    103
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Issued": {
+            "coordinates": [
+                [
+                    71,
+                    159
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Valid until": {
+            "coordinates": [
+                [
+                    72,
+                    218
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Name": {
+            "coordinates": [
+                [
+                    133,
+                    276
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Faculty": {
+            "coordinates": [
+                [
+                    137,
+                    357
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Group": {
+            "coordinates": [
+                [
+                    97,
+                    435
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Signature": {
+            "coordinates": [
+                [
+                    140,
+                    495
+                ]
+            ],
+            "field_type": "None"
+        },
+        "Barcode": {
+            "coordinates": [
+                [
+                    306,
+                    383
+                ]
+            ],
+            "field_type": "bar code"
+        },
+        "Empty": {
+            "coordinates": [
+                [
+                    306,
+                    152
+                ]
+            ],
+            "field_type": "None"
+        }
+    },
+    "processing_type": "boxes"
+}

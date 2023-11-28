@@ -1,0 +1,102 @@
+{
+    "file_name": "School",
+    "img_size": [
+        398,
+        640,
+        3
+    ],
+    "interest_points": {
+        "Place": {
+            "coordinates": [
+                [
+                    243,
+                    101
+                ],
+                [
+                    461,
+                    101
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Name": {
+            "coordinates": [
+                [
+                    228,
+                    189
+                ],
+                [
+                    461,
+                    191
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Number": {
+            "coordinates": [
+                [
+                    226,
+                    258
+                ],
+                [
+                    463,
+                    257
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Bar code": {
+            "coordinates": [
+                [
+                    346,
+                    337
+                ],
+                [
+                    577,
+                    336
+                ]
+            ],
+            "field_type": "bar code"
+        },
+        "Photo": {
+            "coordinates": [
+                [
+                    104,
+                    107
+                ],
+                [
+                    94,
+                    216
+                ]
+            ],
+            "field_type": "photo"
+        },
+        "Issued": {
+            "coordinates": [
+                [
+                    41,
+                    297
+                ],
+                [
+                    139,
+                    297
+                ]
+            ],
+            "field_type": "text"
+        },
+        "Valid until": {
+            "coordinates": [
+                [
+                    48,
+                    363
+                ],
+                [
+                    149,
+                    364
+                ]
+            ],
+            "field_type": "text"
+        }
+    },
+    "processing_type": "boxes"
+}
