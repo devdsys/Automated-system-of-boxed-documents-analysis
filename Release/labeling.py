@@ -2,10 +2,7 @@
 import cv2
 import json
 import os
-
-# Function that does nothing, to be used as a callback for the trackbar
-def do_nothing(x):
-    pass
+from functions import do_nothing
 
 # Function to handle mouse click events
 def handle_click_event(event, x, y, flags, params):
@@ -56,7 +53,7 @@ current_point_counter = max_points
 current_point_name = ""
 
 # Read image to label, and get its dimensions
-image = cv2.imread('Release/input_images/Student_ID.jpg')
+image = cv2.imread('Release/input_images/Student_ticket.jpg')
 height, width, _ = image.shape
 
 # Create window and trackbars for adjusting width and height

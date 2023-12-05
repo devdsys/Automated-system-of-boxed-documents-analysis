@@ -6,12 +6,13 @@ import requests
 import base64
 import time
 import sys
+from functions import check_points_in_boxes_with_rect, save_image_parts, do_nothing
 
 # Load images
 image_path = 'Release/input_images/Student_ticket.jpg'
 
 # OCR API key obtained from 'https://onlineocrconverter.com/profile'
-api_key = 'DnmyqT84I5p5AxxoZ1nF3NoCwv2iZ9M605JxfXw1WfaGOUYvrLRL_veP8sq_ldw7BDY'
+api_key = 'YOUR_API_KEY'
 
 # Folder to save cropped parts of the image
 parts_folder = 'Release/cropped_parts'
@@ -71,52 +72,6 @@ for i, document_img in enumerate(templates_imgs):
 if max_matches < min_matches:
     print(f"Number of matches {max_matches} is less than the minimum required {min_matches}. Stopping execution.")
     sys.exit()
-
-# Function that does nothing, used as a placeholder for trackbar callback
-def nothing(x):
-    pass
-
-# Check if all interest points are inside bounding boxes and each box contains a point
-def check_points_in_boxes_with_rect(json_file, contours):
-    # Load json file
-    with open(json_file) as f:
-        data = json.load(f)
-    
-    # Prepare a dictionary to record if a point has been assigned to a box.
-    assigned_points = {key: [False]*len(val["coordinates"]) for key, val in data['interest_points'].items()}
-
-    # Prepare a list to record if a box has been assigned a point.
-    box_assigned = [False]*len(contours)
-
-    # Extract bounding boxes from contours
-    bounding_boxes = [cv2.boundingRect(cnt) for cnt in contours]
-
-    # Check for each box
-    for i, bbox in enumerate(bounding_boxes):
-        x, y, w, h = bbox
-        # Check for each point
-        for point_name, point_info in data['interest_points'].items():
-            points = point_info["coordinates"]
-            for j, point in enumerate(points):
-                px, py = point
-                if x <= px <= x+w and y <= py <= y+h:  # point is inside the bbox
-                    # Check if this point is already assigned to a box.
-                    if assigned_points[point_name][j]:
-                        return False
-                    assigned_points[point_name][j] = True
-                    box_assigned[i] = True
-
-    # Check if there are points not assigned to any box.
-    for point_name, assigned in assigned_points.items():
-        if not all(assigned):
-            return False
-
-    # Check if there are boxes not assigned any point.
-    for i, assigned in enumerate(box_assigned):
-        if not assigned:
-            return False
-
-    return True
 
 
 # Save image parts based on bounding boxes and interest points
@@ -211,12 +166,12 @@ image = cv2.resize(image, (h, w))
 cv2.namedWindow('image')
 
 # Create trackbars for color change
-cv2.createTrackbar('HMin','image',0,179,nothing) # Hue is from 0-179 for Opencv
-cv2.createTrackbar('SMin','image',0,255,nothing)
-cv2.createTrackbar('VMin','image',0,255,nothing)
-cv2.createTrackbar('HMax','image',0,179,nothing)
-cv2.createTrackbar('SMax','image',0,255,nothing)
-cv2.createTrackbar('VMax','image',0,255,nothing)
+cv2.createTrackbar('HMin','image',0,179,do_nothing) # Hue is from 0-179 for Opencv
+cv2.createTrackbar('SMin','image',0,255,do_nothing)
+cv2.createTrackbar('VMin','image',0,255,do_nothing)
+cv2.createTrackbar('HMax','image',0,179,do_nothing)
+cv2.createTrackbar('SMax','image',0,255,do_nothing)
+cv2.createTrackbar('VMax','image',0,255,do_nothing)
 
 # Set default value for MAX HSV trackbars.
 cv2.setTrackbarPos('HMax', 'image', 179)
